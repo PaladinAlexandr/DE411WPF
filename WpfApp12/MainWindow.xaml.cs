@@ -25,7 +25,7 @@ namespace WpfApp12
         private void AuthorizationButton_Click(object sender, RoutedEventArgs e)
         {
             var DB = new YaChepContext();
-            var result = DB.Users.Include(x=>x.RoleNavigation).Where(x => x.Login == LoginUserTextBox.Text &&
+            var result = DB.Users.Include(x => x.RoleNavigation).Where(x => x.Login == LoginUserTextBox.Text &&
             x.Password == PasswordUserBox.Password).FirstOrDefault();
             if (result != null)
             {

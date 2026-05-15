@@ -105,5 +105,29 @@ namespace WpfApp12
             new ListProductWindow().Show();
             Close();
         }
+
+        private void AddProductWindow_Click(object sender, RoutedEventArgs e)
+        {
+          
+            new AddEditProductWindow().Show();
+            Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+          
+        }
+
+        private void ProductListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ProductListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ProductControl control = (ProductControl)ProductListBox.SelectedItem;
+            new AddEditProductWindow(control.CurrentProduct).Show();
+            Close();
+        }
     }
 }

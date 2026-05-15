@@ -31,6 +31,7 @@
 
             </Grid>
         </Border>
-        <Button Content="Добавить Редактировать" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Height="34" Width="119"/>
+        <Button Content=" Редактировать" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Height="34" Width="119" Click="Button_Click_1"/>
+        <Button Content="Добавить " HorizontalAlignment="Left" Margin="162,356,0,0" VerticalAlignment="Top" Height="34" Width="119" Click="Button_Click"/>
     </Grid>
 </Window>
