@@ -92,5 +92,18 @@ namespace WpfApp12
         {
             Sort();
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProductListBox.SelectedItems == null) return;
+
+            ProductControl control = (ProductControl)ProductListBox.SelectedItem;
+            var DB = new YaChepContext();
+            DB.Products.Remove(control.CurrentProduct);
+            DB.SaveChanges();
+            MessageBox.Show("Успешно удалён");
+            new ListProductWindow().Show();
+            Close();
+        }
     }
 }

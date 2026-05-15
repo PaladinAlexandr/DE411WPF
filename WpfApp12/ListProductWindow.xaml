@@ -17,7 +17,7 @@
         <StackPanel Height="25" x:Name="AdminPanel"  Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,25,0,0">
             <Button Content="Добавить товар" Width="137"/>
             <Button Content="Редактировать товар" Width="137"/>
-            <Button Content="Удалить товар" Width="137"/>
+            <Button x:Name="DeleteButton" Content="Удалить товар" Width="137" Click="DeleteButton_Click"/>
         </StackPanel>
         <StackPanel  Height="25" x:Name="ManagerPanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <TextBox x:Name="SearchTextBox" Foreground="White" Background="SeaGreen" TextWrapping="Wrap"  Width="453" TextChanged="SearchTextBox_TextChanged"/>
