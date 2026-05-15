@@ -34,11 +34,12 @@ namespace WpfApp12
                 if (User.RoleNavigation.Role1 != "Администратор")
                 {
                     AdminPanel.Visibility = Visibility.Hidden;
+                    if (User.RoleNavigation.Role1 != "Менеджер")
+                    {
+                        ManagerPanel.Visibility = Visibility.Hidden;
+                    }
                 }
-                if (User.RoleNavigation.Role1 != "Менеджер")
-                {
-                    ManagerPanel.Visibility = Visibility.Hidden;
-                }
+
             }
 
             products = new YaChepContext().Products
@@ -59,6 +60,16 @@ namespace WpfApp12
                                || x.CategoryNavigation.Category1.Contains(search)
                                || x.ManufactureNavigation.Manufacture1.Contains(search));
 
+            if (OrderProductCombobox.SelectedIndex == 0)
+                resultProducts = resultProducts.OrderBy(x => x.CountInBox);
+            else if (OrderProductCombobox.SelectedIndex == 1)
+                resultProducts = resultProducts.OrderByDescending(x => x.CountInBox);
+
+            if (FilterSupplierCombobox.SelectedIndex == 1)
+                resultProducts = resultProducts.Where(x => x.SupplierNavigation.Id == 1);
+            else if (FilterSupplierCombobox.SelectedIndex == 2)
+                resultProducts = resultProducts.Where(x => x.SupplierNavigation.Id == 2);
+
             ProductListBox.Items.Clear();
             foreach (var product in resultProducts)
             {
@@ -68,6 +79,16 @@ namespace WpfApp12
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Sort();
+        }
+
+        private void OrderProductCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Sort();
+        }
+
+        private void FilterSupplierCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Sort();
         }

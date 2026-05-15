@@ -21,8 +21,15 @@
         </StackPanel>
         <StackPanel  Height="25" x:Name="ManagerPanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <TextBox x:Name="SearchTextBox" Foreground="White" Background="SeaGreen" TextWrapping="Wrap"  Width="453" TextChanged="SearchTextBox_TextChanged"/>
-            <ComboBox Width="120"/>
-            <ComboBox Width="120"/>
+            <ComboBox Name="OrderProductCombobox"  Width="120" SelectionChanged="OrderProductCombobox_SelectionChanged">
+                <ComboBoxItem>По возрастнию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="FilterSupplierCombobox" Width="120" SelectionChanged="FilterSupplierCombobox_SelectionChanged">
+                <ComboBoxItem>Все поставщики</ComboBoxItem>
+                <ComboBoxItem>Kari</ComboBoxItem>
+                <ComboBoxItem>Обувь для вас</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
 
     </Grid>
