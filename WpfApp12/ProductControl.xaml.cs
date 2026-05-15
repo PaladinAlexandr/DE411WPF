@@ -52,8 +52,7 @@ namespace WpfApp12
             }
             if(product.Phorto != null)
             {
-                var uri = new Uri($"C:\\Users\\1\\Documents\\GitHub\\" +
-                    $"KIRICHENKO-ILINA-BAKIROVA\\WpfApp12\\Resources\\{product.Phorto}");
+                var uri = new Uri($"C:\\Users\\1\\Documents\\GitHub\\DE42WPF\\DE411WPF\\WpfApp12\\Resources\\{product.Phorto}");
                 PhotoProductImage.Source = new BitmapImage(uri);
             }
         }

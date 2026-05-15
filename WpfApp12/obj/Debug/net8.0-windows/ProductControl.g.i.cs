@@ -133,7 +133,7 @@ namespace WpfApp12 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp12;V1.0.0.0;component/productcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp12;component/productcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ProductControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

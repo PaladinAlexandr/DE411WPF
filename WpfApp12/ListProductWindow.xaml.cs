@@ -23,13 +23,30 @@ namespace WpfApp12
         public ListProductWindow()
         {
             InitializeComponent();
+            if (UserSingleton.GetUser != null)
+            {
+                var User = UserSingleton.GetUser;
+                FullNameTextBlock.Text =
+                    $" {User.Surname}" +
+                    $" {User.Name}" +
+                    $" {User.Patronymic}";
+                if (User.RoleNavigation.Role1 != "Администратор")
+                {
+                    AdminPanel.Visibility = Visibility.Hidden;
+                }
+                if (User.RoleNavigation.Role1 != "Менеджер")
+                {
+                    ManagerPanel.Visibility = Visibility.Hidden;
+                }
+            }
+
             var products = new YaChepContext().Products
                 .Include(x => x.ManufactureNavigation)
                 .Include(x => x.SupplierNavigation)
                 .Include(x => x.CategoryNavigation);
             foreach (var product in products)
             {
-               ProductListBox.Items.Add(new ProductControl(product));
+                ProductListBox.Items.Add(new ProductControl(product));
             }
         }
     }
