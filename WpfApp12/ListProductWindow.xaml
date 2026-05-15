@@ -20,7 +20,7 @@
             <Button Content="Удалить товар" Width="137"/>
         </StackPanel>
         <StackPanel  Height="25" x:Name="ManagerPanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <TextBox Foreground="White" Background="SeaGreen" TextWrapping="Wrap"  Width="453"/>
+            <TextBox x:Name="SearchTextBox" Foreground="White" Background="SeaGreen" TextWrapping="Wrap"  Width="453" TextChanged="SearchTextBox_TextChanged"/>
             <ComboBox Width="120"/>
             <ComboBox Width="120"/>
         </StackPanel>

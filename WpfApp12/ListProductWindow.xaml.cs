@@ -20,6 +20,7 @@ namespace WpfApp12
     /// </summary>
     public partial class ListProductWindow : Window
     {
+        IQueryable<Product> products;
         public ListProductWindow()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace WpfApp12
                 }
             }
 
-            var products = new YaChepContext().Products
+            products = new YaChepContext().Products
                 .Include(x => x.ManufactureNavigation)
                 .Include(x => x.SupplierNavigation)
                 .Include(x => x.CategoryNavigation);
@@ -48,6 +49,27 @@ namespace WpfApp12
             {
                 ProductListBox.Items.Add(new ProductControl(product));
             }
+        }
+        public void Sort()
+        {
+            var search = SearchTextBox.Text;
+            var resultProducts = products.Where(x => x.ProductName.Contains(search)
+                               || x.Article.Contains(search)
+                               || x.Discription.Contains(search)
+                               || x.CategoryNavigation.Category1.Contains(search)
+                               || x.ManufactureNavigation.Manufacture1.Contains(search));
+
+            ProductListBox.Items.Clear();
+            foreach (var product in resultProducts)
+            {
+                ProductListBox.Items.Add(new ProductControl(product));
+            }
+
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Sort();
         }
     }
 }
